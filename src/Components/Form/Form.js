@@ -40,7 +40,7 @@ export function Form() {
     const handleSubmit = event => {
         event.preventDefault();
         if (contact.includes(name.toLowerCase())) {
-            return toast.error('Hey, this name always here!');
+            return toast.warning('Such a name already exists!', { theme: "dark"});
         }
         dispatch(action.getSubmitData({ name, number, id }));
         resetState();

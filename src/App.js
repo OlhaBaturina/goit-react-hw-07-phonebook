@@ -14,7 +14,9 @@ export const App = () => {
             <h2 className={s.title}>Contacts</h2>
             <Filter />
             <Contacts />
-            <ToastContainer />
+            <ToastContainer
+            
+ />
         </>
     );
 };
