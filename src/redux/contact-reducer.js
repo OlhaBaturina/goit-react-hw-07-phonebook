@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReducer } from '@reduxjs/toolkit';
 import actions from './contact-actions';
@@ -13,7 +13,7 @@ const contactsReducer = createReducer([], {
     },
 });
 
-const filterReducer = createReducer('', {
+export const filterReducer = createReducer('', {
     [actions.changeFilterValue]: (_, action) => {
         return action.payload;
     },
