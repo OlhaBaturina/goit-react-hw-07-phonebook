@@ -1,5 +1,4 @@
 import React, { useEffect }  from 'react';
-import PropTypes from 'prop-types';
 import s from './Contact.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {fetchData, deleteContact} from '../../redux/contacts-operations';
@@ -8,7 +7,6 @@ import {fetchData, deleteContact} from '../../redux/contacts-operations';
 const Contacts = () => {
     
     const contacts = useSelector(({ contacts, filter }) => {
-        
         const visibleContacts = contacts.filter(contact =>
             contact.name.toLowerCase().includes(filter.toLowerCase()),
         );
@@ -50,7 +48,3 @@ const Contacts = () => {
 
 export default Contacts;
 
-Contacts.propTypes = {
-    contacts: PropTypes.array,
-    deleteFunction: PropTypes.func,
-};

@@ -1,5 +1,3 @@
-// import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { createReducer } from '@reduxjs/toolkit';
 import {
     addContactSuccess, 
@@ -28,6 +26,7 @@ const contactsReducer = createReducer([], {
     },
 });
 
+
 export const loading = createReducer(false, {
     [fetchContactRequest]: () => true,
     [fetchContactSuccess]: () => false,
@@ -40,12 +39,14 @@ export const loading = createReducer(false, {
     [deleteContactRequest]: () => true,
     [deleteContactSuccess]: () => false,
     [deleteContactError]: () => false,
- })
+ });
+
 
 export const filterReducer = createReducer('', {
     [changeFilterValue]: (_, action) => {
         return action.payload;
     },
 });
+
 
 export default { contactsReducer, filterReducer, loading };

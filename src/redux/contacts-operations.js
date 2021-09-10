@@ -11,10 +11,11 @@ import {
     fetchContactError 
 } from './contact-actions';
 
+
 axios.defaults.baseURL = 'http://localhost:3000';
 
+
 export const fetchData = () => dispatch =>{
-    
     dispatch(fetchContactRequest());
 
     axios
@@ -25,7 +26,6 @@ export const fetchData = () => dispatch =>{
 
 
 export const getSubmitData = (text) => dispatch =>{
-    
     dispatch(addContactRequest());
 
     axios
@@ -36,7 +36,6 @@ export const getSubmitData = (text) => dispatch =>{
 
 
 export const deleteContact = (contactId) => dispatch => {
-    
     dispatch(deleteContactRequest());
 
     axios

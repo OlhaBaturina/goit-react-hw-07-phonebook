@@ -30,7 +30,6 @@ export function Form() {
             default:
                 return;
         }
-     
     };
 
     const contact = useSelector(({ contacts }) =>
@@ -38,11 +37,10 @@ export function Form() {
     );
 
     const handleSubmit = event => {
-    
         event.preventDefault();
-        if (contact.includes(name.toLowerCase())) {
-            return toast.warning('Such a name already exists!', { theme: "dark"});
-        }
+            if (contact.includes(name.toLowerCase())) {
+                return toast.warning('Such a name already exists!', { theme: "dark"});
+            }
                
         dispatch(getSubmitData({'name': name, 'number': number}));
         resetState();
@@ -50,8 +48,7 @@ export function Form() {
 
     const resetState = () => {
         setName('');
-        setNumber('');
-            
+        setNumber('');  
     };
 
     return (
