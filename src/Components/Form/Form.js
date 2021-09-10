@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import s from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import action from '../../redux/contact-actions';
+import {getSubmitData} from '../../redux/contacts-operations';
 import { toast } from 'react-toastify';
 
 export function Form() {
     Form.propTypes = {
-        submitMethod: PropTypes.func,
+        getSubmitData: PropTypes.func,
     };
 
     const dispatch = useDispatch();
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
-    const [id, setId] = useState('');
+    // const [text, setText] = useState({});
 
     const handleClick = event => {
-        const { value, name, id } = event.target;
+        const { value, name } = event.target;
 
         switch (name) {
             case 'name':
@@ -30,7 +30,7 @@ export function Form() {
             default:
                 return;
         }
-        setId(id);
+     
     };
 
     const contact = useSelector(({ contacts }) =>
@@ -38,18 +38,21 @@ export function Form() {
     );
 
     const handleSubmit = event => {
+    
         event.preventDefault();
         if (contact.includes(name.toLowerCase())) {
             return toast.warning('Such a name already exists!', { theme: "dark"});
         }
-        dispatch(action.getSubmitData({ name, number, id }));
+        console.log('name + number:', name, number)
+        dispatch(getSubmitData(name, number));
         resetState();
     };
 
     const resetState = () => {
         setName('');
         setNumber('');
-        setId('');
+        // setText({})
+        
     };
 
     return (
@@ -89,3 +92,4 @@ export function Form() {
         </form>
     );
 }
+

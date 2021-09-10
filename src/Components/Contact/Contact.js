@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Contact.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import action from '../../redux/contact-actions';
+import {deleteContact} from '../../redux/contacts-operations';
 
 const Contacts = () => {
     const contacts = useSelector(({ contacts, filter }) => {
@@ -27,7 +27,7 @@ const Contacts = () => {
                                     type="button"
                                     onClick={() => {
                                         dispatch(
-                                            action.handleDelete(contact.id),
+                                            deleteContact(contact.id),
                                         );
                                     }}
                                 >

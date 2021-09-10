@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Filter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import action from '../../redux/contact-actions';
+import {changeFilterValue} from '../../redux/contact-actions';
 import { getFilter } from '../../redux/contact-filter';
 
 const Filter = () => {
@@ -16,7 +16,7 @@ const Filter = () => {
                 type="text"
                 value={value}
                 onChange={evt => {
-                    dispatch(action.changeFilterValue(evt.target.value));
+                    dispatch(changeFilterValue(evt.target.value));
                 }}
             />
         </label>

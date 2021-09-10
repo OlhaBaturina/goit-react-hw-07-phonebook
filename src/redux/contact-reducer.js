@@ -1,20 +1,41 @@
 // import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReducer } from '@reduxjs/toolkit';
-import actions from './contact-actions';
+import {
+    addContactSuccess, 
+    addContactError, 
+    addContactRequest,
+    deleteContactRequest,
+    deleteContactSuccess,
+    deleteContactError, 
+    changeFilterValue
+} from './contact-actions';
+// import {getSubmitData} from './contacts-operations'
 
 const contactsReducer = createReducer([], {
-    [actions.getSubmitData]: (state, action) => {
-        return [...state, action.payload];
+    [addContactSuccess]: (state, {payload}) => {
+        console.log('state:', state);
+        console.log('action:', payload)
+        return [...state, payload];
     },
 
-    [actions.handleDelete]: (state, action) => {
-        return state.filter(state => state.id !== action.payload);
+    [deleteContactSuccess]: (state, {payload}) => {
+        state.filter(({id})=> id !== payload);
     },
 });
 
+export const loading = createReducer(false, {
+    [addContactRequest]: () => true,
+    [addContactSuccess]: () => false,
+    [addContactError]: () => false,
+    
+    [deleteContactRequest]: () => true,
+    [deleteContactSuccess]: () => false,
+    [deleteContactError]: () => false,
+ })
+
 export const filterReducer = createReducer('', {
-    [actions.changeFilterValue]: (_, action) => {
+    [changeFilterValue]: (_, action) => {
         return action.payload;
     },
 });
