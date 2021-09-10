@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {getSubmitData} from '../../redux/contacts-operations';
 import { toast } from 'react-toastify';
 
+console.log(getSubmitData)
+
 export function Form() {
     Form.propTypes = {
         getSubmitData: PropTypes.func,
@@ -43,8 +45,9 @@ export function Form() {
         if (contact.includes(name.toLowerCase())) {
             return toast.warning('Such a name already exists!', { theme: "dark"});
         }
-        console.log('name + number:', name, number)
-        dispatch(getSubmitData(name, number));
+        console.log('name + number:', name, number);
+        // setText({})
+        dispatch(getSubmitData({'name': name, 'number': number, 'id': number}));
         resetState();
     };
 

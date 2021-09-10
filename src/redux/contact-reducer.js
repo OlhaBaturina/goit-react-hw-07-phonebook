@@ -17,10 +17,11 @@ const contactsReducer = createReducer([], {
         console.log('state:', state);
         console.log('action:', payload)
         return [...state, payload];
+
     },
 
     [deleteContactSuccess]: (state, {payload}) => {
-        state.filter(({id})=> id !== payload);
+        return state.filter(({id})=> id !== payload);
     },
 });
 
