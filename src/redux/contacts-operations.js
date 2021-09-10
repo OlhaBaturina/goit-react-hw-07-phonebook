@@ -5,19 +5,27 @@ import {
     addContactRequest,
     deleteContactRequest,
     deleteContactSuccess,
-    deleteContactError,  
-    changeFilterValue
+    deleteContactError, 
+    fetchContactRequest,
+    fetchContactSuccess,
+    fetchContactError 
 } from './contact-actions';
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
-export const getSubmitData = (text) => dispatch =>{
-    // const contact = {
-    //     text,
-    //     completed: false,
-    // };
-console.log(text);
+export const fetchData = () => dispatch =>{
+    
+    dispatch(fetchContactRequest());
 
+    axios
+    .get('/contacts')
+    .then(({data})=> dispatch(fetchContactSuccess(data)))
+    .catch(error => dispatch(fetchContactError(error)))
+};
+
+
+export const getSubmitData = (text) => dispatch =>{
+    
     dispatch(addContactRequest());
 
     axios
@@ -28,7 +36,7 @@ console.log(text);
 
 
 export const deleteContact = (contactId) => dispatch => {
-    console.log(contactId);
+    
     dispatch(deleteContactRequest());
 
     axios
@@ -36,4 +44,3 @@ export const deleteContact = (contactId) => dispatch => {
     .then(() => dispatch(deleteContactSuccess(contactId)))
     .catch(error => dispatch(deleteContactError(error)))
 };
-// export default {getSubmitData,}

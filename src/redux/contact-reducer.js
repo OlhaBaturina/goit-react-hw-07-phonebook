@@ -8,18 +8,22 @@ import {
     deleteContactRequest,
     deleteContactSuccess,
     deleteContactError, 
-    changeFilterValue
+    changeFilterValue,
+    fetchContactRequest,
+    fetchContactSuccess,
+    fetchContactError
 } from './contact-actions';
-// import {getSubmitData} from './contacts-operations'
+
 
 const contactsReducer = createReducer([], {
+    
+    [fetchContactSuccess]: (state, {payload}) => payload,
+
     [addContactSuccess]: (state, {payload}) => {
-        console.log('state:', state);
-        console.log('action:', payload)
-        return [...state, payload];
+          return [...state, payload];
 
     },
-
+    
     [deleteContactSuccess]: (state, {payload}) => {
         return state.filter(({id})=> id !== payload);
     },

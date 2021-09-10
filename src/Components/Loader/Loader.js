@@ -1,5 +1,10 @@
 import Loader from 'react-loader-spinner';
 import s from './Loader.module.css';
+import React, { useState } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import {getSubmitData} from '../../redux/contacts-operations';
+
+
 
 const CustomLoader = () => (
     <div className={s.Loader}>

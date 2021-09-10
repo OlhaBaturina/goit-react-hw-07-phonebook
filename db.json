@@ -1,3 +1,14 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "Koshka Koshkovna",
+      "number": "0946583",
+      "id": 3
+    },
+    {
+      "name": "Pig Pigovich",
+      "number": "746388747896",
+      "id": 4
+    }
+  ]
 }
