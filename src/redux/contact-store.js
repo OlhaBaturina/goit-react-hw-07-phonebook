@@ -22,6 +22,7 @@ import {
 const rootReducer = combineReducers({
     contacts: componentReducer.contactsReducer,
     filter: componentReducer.filterReducer,
+    loading: componentReducer.loading,
 });
 
 // const persistedReducer = persistReducer(persistConfig, rootReducer);

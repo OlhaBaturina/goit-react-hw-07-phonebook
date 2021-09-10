@@ -17,8 +17,6 @@ const Contacts = () => {
 
     const dispatch = useDispatch();
 
-
-
     useEffect(() => {
         dispatch(fetchData());
       }, [dispatch]);

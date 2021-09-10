@@ -21,7 +21,6 @@ const contactsReducer = createReducer([], {
 
     [addContactSuccess]: (state, {payload}) => {
           return [...state, payload];
-
     },
     
     [deleteContactSuccess]: (state, {payload}) => {
@@ -30,6 +29,10 @@ const contactsReducer = createReducer([], {
 });
 
 export const loading = createReducer(false, {
+    [fetchContactRequest]: () => true,
+    [fetchContactSuccess]: () => false,
+    [fetchContactError]: () => false,
+    
     [addContactRequest]: () => true,
     [addContactSuccess]: () => false,
     [addContactError]: () => false,
@@ -45,4 +48,4 @@ export const filterReducer = createReducer('', {
     },
 });
 
-export default { contactsReducer, filterReducer };
+export default { contactsReducer, filterReducer, loading };
