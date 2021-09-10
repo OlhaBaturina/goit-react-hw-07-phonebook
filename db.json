@@ -6,11 +6,6 @@
       "id": 3
     },
     {
-      "name": "leopold",
-      "number": "+23456",
-      "id": 6
-    },
-    {
       "name": "kilka v tomate",
       "number": "85754648",
       "id": 7
@@ -44,6 +39,11 @@
       "name": "ctrlV",
       "number": "0474553",
       "id": 13
+    },
+    {
+      "name": "leopold",
+      "number": "34567",
+      "id": 14
     }
   ]
 }
